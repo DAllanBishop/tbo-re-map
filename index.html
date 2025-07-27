@@ -46,18 +46,18 @@
 
             if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
               highlightLayer.setStyle({
-                color: '#ffff00',
+                color: '#4fca59',
               });
             } else {
               highlightLayer.setStyle({
-                fillColor: '#ffff00',
+                fillColor: '#4fca59',
                 fillOpacity: 1
               });
             }
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-27.601135187996043,151.88859297771143],[-27.513770806868322,152.02276324747965]]);
+        }).fitBounds([[-27.45688727324247,151.94548890696453],[-27.445966725601505,151.96226019068556]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -181,7 +181,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>re</strong><br />' + (feature.properties['re'] !== null ? autolinker.link(String(feature.properties['re']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Regional Ecosystem ID</strong><br />' + (feature.properties['re'] !== null ? autolinker.link(String(feature.properties['re']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>re1</strong><br />' + (feature.properties['re1'] !== null ? autolinker.link(String(feature.properties['re1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -217,16 +217,10 @@
                         <td class="visible-with-data" id="pc5" colspan="2"><strong>pc5</strong><br />' + (feature.properties['pc5'] !== null ? autolinker.link(String(feature.properties['pc5']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="re_label" colspan="2"><strong>re_label</strong><br />' + (feature.properties['re_label'] !== null ? autolinker.link(String(feature.properties['re_label']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="pc_label" colspan="2"><strong>pc_label</strong><br />' + (feature.properties['pc_label'] !== null ? autolinker.link(String(feature.properties['pc_label']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td class="visible-with-data" id="landzone" colspan="2"><strong>landzone</strong><br />' + (feature.properties['landzone'] !== null ? autolinker.link(String(feature.properties['landzone']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="bd_status" colspan="2"><strong>bd_status</strong><br />' + (feature.properties['bd_status'] !== null ? autolinker.link(String(feature.properties['bd_status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="bd_status" colspan="2"><strong>Biodiversity Status</strong><br />' + (feature.properties['bd_status'] !== null ? autolinker.link(String(feature.properties['bd_status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="bd_symbol" colspan="2"><strong>bd_symbol</strong><br />' + (feature.properties['bd_symbol'] !== null ? autolinker.link(String(feature.properties['bd_symbol']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -239,9 +233,6 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="vm_poly" colspan="2"><strong>vm_poly</strong><br />' + (feature.properties['vm_poly'] !== null ? autolinker.link(String(feature.properties['vm_poly']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="version" colspan="2"><strong>version</strong><br />' + (feature.properties['version'] !== null ? autolinker.link(String(feature.properties['version']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="l" colspan="2"><strong>l</strong><br />' + (feature.properties['l'] !== null ? autolinker.link(String(feature.properties['l']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -263,12 +254,6 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="dbvg5m" colspan="2"><strong>dbvg5m</strong><br />' + (feature.properties['dbvg5m'] !== null ? autolinker.link(String(feature.properties['dbvg5m']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="shape_Leng" colspan="2"><strong>shape_Leng</strong><br />' + (feature.properties['shape_Leng'] !== null ? autolinker.link(String(feature.properties['shape_Leng']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="shape_Area" colspan="2"><strong>shape_Area</strong><br />' + (feature.properties['shape_Area'] !== null ? autolinker.link(String(feature.properties['shape_Area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
